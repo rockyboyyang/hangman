@@ -1,0 +1,70 @@
+#alphabet_container {
+    height: 80%;
+    width: 80%;
+    background-color: azure;
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    border: 2px solid black;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+#letter_B, 
+#letter_C, 
+#letter_D, 
+#letter_E, 
+#letter_F, 
+#letter_G, 
+#letter_H,
+#letter_K, 
+#letter_L, 
+#letter_M, 
+#letter_N, 
+#letter_O, 
+#letter_P, 
+#letter_Q {
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+} 
+
+#letter_S, 
+#letter_T, 
+#letter_U, 
+#letter_V, 
+#letter_W, 
+#letter_X, 
+#letter_Y, 
+#letter_Z {
+    border-right: 2px solid black;
+}
+
+#letter_A,
+#letter_J {
+    border-bottom: 2px solid black;
+}
+
+#letter_I,
+#letter_R {
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#alphabet_container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    height: 100%;
+    width: 100%;
+    font-size: 32px;
+}
+
+#alphabet_container > div:hover {
+    cursor: pointer;
+    background-color: yellow;
+    border: none;
+    transform: scale(1.1);
+    transition: 0.25s;
+}
+

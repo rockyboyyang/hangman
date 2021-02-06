@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', event => {
+
     let alphabet = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
         'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
@@ -10,6 +11,8 @@ window.addEventListener('DOMContentLoaded', event => {
     // 26 divs inside my html file.
     for(let letter of alphabet) {
         let letterDiv = document.createElement('div')
+        letterDiv.setAttribute('id', `letter_${letter}`)
+        letterDiv.setAttribute('class', `letters_of_alphabet`)
         let letterDivText = document.createTextNode(letter)
         letterDiv.appendChild(letterDivText)
         alphabetContainer.appendChild(letterDiv)

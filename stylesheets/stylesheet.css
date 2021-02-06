@@ -1,0 +1,22 @@
+@import 'alphabet_board.css';
+
+body {
+    background-color: rgb(213, 213, 213);
+    height: 100vh;
+    margin: 0;
+}
+
+#body_div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#gameboard_container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 4fr 1fr 4fr;
+}
+
