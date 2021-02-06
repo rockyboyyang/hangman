@@ -55,4 +55,6 @@ window.addEventListener('DOMContentLoaded', event => {
         letterDiv.appendChild(letterDivText)
         alphabetContainer.appendChild(letterDiv)
     }
+
+    
 })
