@@ -24,6 +24,13 @@
 #word_to_guess {
     height: 100%;
     width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+#word_to_guess_letters {
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,6 +45,12 @@
     align-items: center;
     justify-content: center;
     font-size: 40px;
+}
+
+#category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .is_space {

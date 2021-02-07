@@ -1,4 +1,4 @@
-#win_modal {
+#modal {
     height: 100%;
     width: 100%;
     display: flex;
@@ -8,16 +8,34 @@
     background-color: rgba(128, 128, 128, 0.202);
 }
 
-#inner_win_modal {
+#inner_modal {
     height: 25%;
     width: 25%;
     background-color: azure;
     border: 2px solid black;
 }
 
-#lose_modal {
-    height: 100%;
+#inner_modal_text {
+    height: 50%;
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
+    background-color: azure;
+    font-size: 18px;
+}
+
+#play_again_button {
+    height: 50%;
+    width: 100%;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#play_again_button:hover {
+    background-color: yellow;
+    cursor: pointer;
+    transition: 0.5s;
 }
