@@ -9,3 +9,5 @@
 - if you guess all the letters in the word, you have to type the word(s) in the input box to win (including space if the word to guess is more than one word).
 
 - Guessing the word or letter incorrectly will add a body part and thus penalize the user.
+
+- A letter that has been guessed will not allowed to be guessed anymore.
