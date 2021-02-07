@@ -9,14 +9,14 @@ const words = {
         'wizards', 'nets', 'knicks', 'celtics', 'hornets', 'magic', 'heat', 'hawks', 'raptors', 'bucks'
     ],
     "TV Sitcoms": [
-        'friends', 'seinfeld', 'the office', 'the big bang theory', 'full house', 'scrubs', 'modern family',
-        'home improvement', 'family matters', 'cheers',
-        'happy days', 'the brady bunch', 'fresh off the boat', 'roseanne', 'the golden girls'
+        'friends', 'seinfeld', 'the office', 'full house', 'scrubs', 'modern family',
+        'family matters', 'cheers',
+        'happy days', 'the brady bunch', 'roseanne', 'the golden girls'
     ],
     "Music Artists/Groups": [
         'eminem', 'katy perry', 'justin bieber', 'future', 'post malone', 'acdc', 'guns n roses', 'metallica',
         'dj khalid', 'snoop dogg', 'iron maiden', 'nirvana', 'demi lovato', 'billy joel', 'def leopard',
-        'the beatles', 'maroon five', 'bangtan boys', 'one direction', 'backstreet boys', 'nsync', 'spice girls', 'motorhead',
+        'the beatles', 'maroon five', 'bangtan boys', 'one direction', 'nsync', 'spice girls', 'motorhead',
         'black sabbath', 'selena gomez', 'shawn mendes', 'wiz khalifa', 'drake', 'beyonce', 'kanye west', 'linkin park'
     ]
 }
@@ -47,12 +47,14 @@ window.addEventListener('DOMContentLoaded', event => {
     // word to guess
     let wordAndCategory = getWord()
     let wordToGuess = wordAndCategory[0]
-
+    let wordLen = wordToGuess.length
     // For loop will create divs for all letters in word to guess
-    for(let letter of wordToGuess) {
+    for(let i = 0; i < wordLen; i++) {
+        let letter = wordToGuess[i]
         let letterDiv = document.createElement('div')
         if(letter === ' ') letterDiv.setAttribute('class', `letters_of_word_to_guess is_space`)
         else letterDiv.setAttribute('class', `letters_of_word_to_guess`)
+        letterDiv.setAttribute('id', `letter_idx_${i}`)
         wordToGuessContainer.appendChild(letterDiv)
     }
 
@@ -72,10 +74,29 @@ window.addEventListener('DOMContentLoaded', event => {
 
     // clickable divs
     let guessBtn = document.getElementById('guess_word')
-
+    let clickableLetter = document.getElementsByClassName('letters_of_alphabet')
     
 
     guessBtn.addEventListener('click', e => {
         guessedWord = guess.value
     })
+
+    for(let letter_box of clickableLetter) {
+        letter_box.addEventListener('click', e => {
+            let selectedLetter = letter_box.innerHTML.toLowerCase()
+            if(!wordToGuess.includes(selectedLetter)) {
+                // Add to hangman stick
+                // return for now
+                return
+            } else {
+                for(let i = 0; i < wordLen; i++) {
+                    let letter = wordToGuess[i]
+                    if(letter === selectedLetter) {
+                        let letterDiv = document.getElementById(`letter_idx_${i}`)
+                        letterDiv.innerText = letter.toUpperCase()
+                    }
+                }
+            }
+        })
+    }
 })
