@@ -1,7 +1,7 @@
 ### Starting up the application
 - No live site, very simple
-- Pull the repo, then right click on index.html
-- copy path and paste into browser and play.
+- Clone the repo, then right click on index.html
+- Copy path and paste into browser and play.
 
 ### Rules to play hangman
 - you have six lives, when the whole body is drawn, you will automatically lose
