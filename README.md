@@ -10,4 +10,6 @@
 
 - Guessing the word or letter incorrectly will add a body part and thus penalize the user.
 
+- When guessing, it is not case sensitive!
+
 - A letter that has been guessed will not allowed to be guessed anymore.
