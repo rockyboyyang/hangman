@@ -1,0 +1,23 @@
+#win_modal {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(128, 128, 128, 0.202);
+}
+
+#inner_win_modal {
+    height: 25%;
+    width: 25%;
+    background-color: azure;
+    border: 2px solid black;
+}
+
+#lose_modal {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

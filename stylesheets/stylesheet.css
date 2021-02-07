@@ -1,6 +1,7 @@
 @import 'alphabet_board.css';
 @import 'hangman.css';
 @import 'word_container.css';
+@import 'modal.css';
 
 body {
     background-color: rgb(213, 213, 213);

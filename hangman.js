@@ -59,7 +59,6 @@ function addToHangmanStick(wrongGuessCount) {
         hangmanPart.setAttribute('id', 'left_leg')
     } else if (wrongGuessCount === 6) {
         hangmanPart.setAttribute('id', 'right_leg')
-        // make modal appear saying you lost
     }
 
     partAddedOnTo.appendChild(hangmanPart)
@@ -91,6 +90,9 @@ window.addEventListener('DOMContentLoaded', event => {
         wordToGuessContainer.appendChild(letterDiv)
     }
 
+    // Sets the body-div into a variable
+    let bodyDiv = document.getElementById('body_div')
+
     // This for loop creates all of my alphabet divs instead of creating
     // 26 divs inside my html file.
     for(let letter of alphabet) {
@@ -117,7 +119,16 @@ window.addEventListener('DOMContentLoaded', event => {
             addToHangmanStick(wrongGuessCount)
         } else {
             // WIN CONDITION
+            for(let i = 0; i < wordLen; i++) {
+                let letter = wordToGuess[i]
+                let letterDiv = document.getElementById(`letter_idx_${i}`)
+                letterDiv.innerText = letter.toUpperCase()
+            }
+            bodyDiv.style.pointerEvents = 'none'
         }
+
+        // Clears the textbox
+        guess.value = ''
     })
 
     for(let letter_box of clickableLetter) {
@@ -125,8 +136,12 @@ window.addEventListener('DOMContentLoaded', event => {
             let selectedLetter = letter_box.innerHTML.toLowerCase()
             if(!wordToGuess.includes(selectedLetter)) {
                 wrongGuessCount ++
-                
                 addToHangmanStick(wrongGuessCount)
+
+                // If lost, then freezes clicks
+                if(wrongGuessCount === 6) {
+                    bodyDiv.style.pointerEvents = 'none'
+                }
             } else {
                 for(let i = 0; i < wordLen; i++) {
                     let letter = wordToGuess[i]
