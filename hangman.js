@@ -36,14 +36,47 @@ function getWord() {
     return [randomWord, randomCategory]
 }
 
+function addToHangmanStick(wrongGuessCount) {
+    // Add to hangman stick
+    let hangmanPart = document.createElement('div')
+    let partAddedOnTo;
+
+    if (wrongGuessCount < 3) {
+        partAddedOnTo = document.getElementById('hangman_pole')
+    } else {
+        partAddedOnTo = document.getElementById('body')
+    }
+
+    if (wrongGuessCount === 1) {
+        hangmanPart.setAttribute('id', 'head')
+    } else if (wrongGuessCount === 2) {
+        hangmanPart.setAttribute('id', 'body')
+    } else if (wrongGuessCount === 3) {
+        hangmanPart.setAttribute('id', 'left_arm')
+    } else if (wrongGuessCount === 4) {
+        hangmanPart.setAttribute('id', 'right_arm')
+    } else if (wrongGuessCount === 5) {
+        hangmanPart.setAttribute('id', 'left_leg')
+    } else if (wrongGuessCount === 6) {
+        hangmanPart.setAttribute('id', 'right_leg')
+        // make modal appear saying you lost
+    }
+
+    partAddedOnTo.appendChild(hangmanPart)
+}
+
 window.addEventListener('DOMContentLoaded', event => {          
     let alphabet = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
         'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
     ]
 
+    // Wrong Guess Counter
+    let wrongGuessCount = 0;
+
     let alphabetContainer = document.getElementById('alphabet_container')
     let wordToGuessContainer = document.getElementById('word_to_guess')
+
     // word to guess
     let wordAndCategory = getWord()
     let wordToGuess = wordAndCategory[0]
@@ -78,16 +111,22 @@ window.addEventListener('DOMContentLoaded', event => {
     
 
     guessBtn.addEventListener('click', e => {
-        guessedWord = guess.value
+        guessedWord = guess.value.toLowerCase()
+        if(guessedWord !== wordToGuess) {
+            wrongGuessCount ++
+            addToHangmanStick(wrongGuessCount)
+        } else {
+            // WIN CONDITION
+        }
     })
 
     for(let letter_box of clickableLetter) {
         letter_box.addEventListener('click', e => {
             let selectedLetter = letter_box.innerHTML.toLowerCase()
             if(!wordToGuess.includes(selectedLetter)) {
-                // Add to hangman stick
-                // return for now
-                return
+                wrongGuessCount ++
+                
+                addToHangmanStick(wrongGuessCount)
             } else {
                 for(let i = 0; i < wordLen; i++) {
                     let letter = wordToGuess[i]
@@ -97,6 +136,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     }
                 }
             }
+            letter_box.style.pointerEvents = 'none'
         })
     }
 })
