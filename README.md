@@ -13,3 +13,5 @@
 - When guessing, it is not case sensitive!
 
 - A letter that has been guessed will not allowed to be guessed anymore.
+
+- Refreshing/Exiting out of the page will start over the game.
