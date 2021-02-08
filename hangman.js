@@ -15,7 +15,7 @@ const words = {
     ],
     "Music Artist/Group": [
         'eminem', 'katy perry', 'justin bieber', 'future', 'post malone', 'acdc', 'guns n roses', 'metallica',
-        'dj khalid', 'snoop dogg', 'iron maiden', 'nirvana', 'demi lovato', 'billy joel', 'def leopard',
+        'dj khalid', 'snoop dogg', 'iron maiden', 'nirvana', 'demi lovato', 'billy joel', 'def leppard',
         'the beatles', 'maroon five', 'bangtan boys', 'one direction', 'nsync', 'spice girls', 'motorhead',
         'black sabbath', 'selena gomez', 'shawn mendes', 'wiz khalifa', 'drake', 'beyonce', 'kanye west', 'linkin park'
     ]
