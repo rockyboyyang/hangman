@@ -66,7 +66,6 @@ function addToHangmanStick(wrongGuessCount) {
 
 function userWinOrLost(lostOrWin, wordToGuess) {
     let body = document.getElementsByTagName("body")[0]
-    console.log(body[0])
     // creates modal div
     let modalDiv = document.createElement('div')
     modalDiv.setAttribute('id', 'modal')
@@ -117,6 +116,15 @@ window.addEventListener('DOMContentLoaded', event => {
     let wordToGuess = wordAndCategory[0]
     let wordLen = wordToGuess.length
     
+    // Hash of wordToGuess with values that equal to # of appearances
+    let wordLetterHash = {}
+
+    // sets the hash
+    for(let letter of wordToGuess) {
+        if(wordLetterHash[letter]) wordLetterHash[letter] ++
+        else wordLetterHash[letter] = 1
+    }
+
     // Sets the category
     let category = document.getElementById('category') 
     category.innerHTML = `Category: ${wordAndCategory[1]}`
@@ -184,7 +192,7 @@ window.addEventListener('DOMContentLoaded', event => {
     for(let letter_box of clickableLetter) {
         letter_box.addEventListener('click', e => {
             let selectedLetter = letter_box.innerHTML.toLowerCase()
-            if(!wordToGuess.includes(selectedLetter)) {
+            if(!wordLetterHash[selectedLetter]) {
                 wrongGuessCount ++
                 addToHangmanStick(wrongGuessCount)
 
