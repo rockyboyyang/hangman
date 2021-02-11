@@ -102,7 +102,7 @@ function userWinOrLost(lostOrWin, wordToGuess) {
 window.addEventListener('DOMContentLoaded', event => {          
     let alphabet = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' '
     ]
 
     // Wrong Guess Counter
@@ -153,6 +153,7 @@ window.addEventListener('DOMContentLoaded', event => {
         alphabetContainer.appendChild(letterDiv)
     }
 
+    document.getElementById('letter_ ').style.pointerEvents = 'none'
     // guess inside input box
     let guess = document.getElementById('input_container')
 
@@ -210,6 +211,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     }
                 }
             }
+            letter_box.style.backgroundColor = 'gray'
             letter_box.style.pointerEvents = 'none'
         })
     }
