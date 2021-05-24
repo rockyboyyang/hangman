@@ -187,10 +187,11 @@ window.addEventListener('DOMContentLoaded', event => {
         // Clears the textbox
         guess.value = ''
     })
-    
+    console.log(clickableLetter)
 
     // Loops through HTMLCollection of elements
     for(let letter_box of clickableLetter) {
+        console.log(letter_box)
         letter_box.addEventListener('click', e => {
             let selectedLetter = letter_box.innerHTML.toLowerCase()
             if(!wordLetterHash[selectedLetter]) {
