@@ -1,0 +1,19 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "- No live site, very simple - Clone the repo, then right click on index.html - Copy path and paste into browser and play. - OR - Double click on index.html and your default browser should open it.",
+  "main": "hangman.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rockyboyyang/hangman.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rockyboyyang/hangman/issues"
+  },
+  "homepage": "https://github.com/rockyboyyang/hangman#readme"
+}
